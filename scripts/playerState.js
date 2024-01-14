@@ -63,6 +63,9 @@ export class Idling extends State {
         else if(input.includes('S') || input.includes('s')) {
             this.player.setState(states.SITTING, 0);
         }
+        else if (input.includes('W') || input.includes('w')) {
+            this.player.setState(states.JUMPING, 1);
+        } 
     }
 }
 export class Running extends State {

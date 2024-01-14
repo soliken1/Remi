@@ -22,6 +22,7 @@
     max-height: 100%;
   }
 
-  #player, #layer1, #layer2, #layer3, #layer4, #layer5, #fairy {
+  #player, #layer1, #layer2, #layer3, #layer4, #layer5, #bird,
+  #orb, #amulet {
     display: none;
   }
