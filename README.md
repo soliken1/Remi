@@ -13,4 +13,6 @@ Logs:
 * 15/1/2024
 - Keys Changed WSAD To Arrow Keys For Less Conditional Bugs
 - Added Dash Movement 'Space'
+- Added Basic Instruction UI
+- Running Particle Effect
  
