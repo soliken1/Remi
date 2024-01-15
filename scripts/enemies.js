@@ -31,8 +31,8 @@ export class FlyingEnemy extends Enemy {
     constructor(game) {
         super(); 
             this.game = game;
-            this.width = 120;
-            this.height = 120;
+            this.width = 55;
+            this.height = 75;
             this.x = this.game.width + Math.random() * this.game.width * 0.5;
             this.y = Math.random() * this.game.height * 0.5;
             this.speedX = Math.random() + 1;
@@ -54,8 +54,8 @@ export class GroundEnemy extends Enemy {
     constructor(game) {
         super(); 
             this.game = game;
-            this.width = 120;
-            this.height = 120;
+            this.width = 88;
+            this.height = 88;
             this.x = this.game.width;
             this.y = this.game.height - this.height - this.game.groundMargin;
             this.image = document.getElementById('orb');
@@ -69,8 +69,8 @@ export class ObjectEnemy extends Enemy {
     constructor(game) {
         super(); 
         this.game = game;
-        this.width = 120;
-        this.height = 120;
+        this.width = 80;
+        this.height = 75;
         this.x = this.game.width;
         this.y = Math.random() * this.game.height * 0.5;
         this.image = document.getElementById('amulet');
