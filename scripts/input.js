@@ -3,29 +3,21 @@ export class InputHandler {
         this.game = game;
         this.keys = [];
         window.addEventListener('keydown', e => {
-            if( (e.key === 'W' || 
-                 e.key === 'S' ||
-                 e.key === 'A' ||
-                 e.key === 'D' ||
-                 e.key === 'w' || 
-                 e.key === 's' ||
-                 e.key === 'a' ||
-                 e.key === 'd' ||
+            if( (e.key === 'ArrowUp'    || 
+                 e.key === 'ArrowDown'  ||
+                 e.key === 'ArrowLeft'  ||
+                 e.key === 'ArrowRight' ||
                  e.key === ' '
                ) && this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key);
             }else if(e.key === 'G' || e.key === 'g') this.game.debug = !this.game.debug;
         });
         window.addEventListener('keyup', e => {
-            if( e.key === 'W' || 
-                e.key === 'S' ||
-                e.key === 'A' ||
-                e.key === 'D' ||
-                e.key === 'w' || 
-                e.key === 's' ||
-                e.key === 'a' ||
-                e.key === 'd' ||
-                e.key === ' ' 
+            if( e.key === 'ArrowUp'     || 
+                e.key === 'ArrowDown'   ||
+                e.key === 'ArrowLeft'   ||
+                e.key === 'ArrowRight'  ||
+                e.key === ' '
                 ) {
                 this.keys.splice(this.keys.indexOf(e.key), 1);
             }

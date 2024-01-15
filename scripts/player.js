@@ -1,4 +1,4 @@
-import { Sitting, Idling, Running, Jumping, Falling } from "./playerState.js"; //Player States Self Explanatory
+import { Sitting, Idling, Running, Jumping, Falling, Rolling } from "./playerState.js"; //Player States Self Explanatory
 
 export class Player {   //Exports the Player Class to the main.js script
     constructor(game) { //From the main.js script gets the game class and making the game class' variable accessible
@@ -37,12 +37,9 @@ export class Player {   //Exports the Player Class to the main.js script
         //Speed of the player
         this.maxSpeed = 10;
         //Player's max speed
-        this.states = [new Sitting(this), new Idling(this), new Running(this), new Jumping(this), new Falling(this)];
+        this.states = [new Sitting(this.game), new Idling(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game),
+                      new Rolling(this.game)];
         //States of the player when the user controls the character, these can be triggered by certain keys
-        this.currentState = this.states[1];
-        //Sets the current state of the player the index of states 1 which is new Idling(player/this class)
-        this.currentState.enter();
-        //Enter the current state of the player
     }
 
     //Update the movements of the player based on movements or set intervals
@@ -52,8 +49,8 @@ export class Player {   //Exports the Player Class to the main.js script
         this.currentState.handleInput(input);
         //Horizontal Movement
         this.x += this.speed;
-        if (input.includes('A') || input.includes('a')) this.speed = -this.maxSpeed;
-        else if (input.includes('D') || input.includes('d')) this.speed = this.maxSpeed;
+        if (input.includes('ArrowLeft')) this.speed = -this.maxSpeed;
+        else if (input.includes('ArrowRight')) this.speed = this.maxSpeed;
         else this.speed = 0;
         if(this.x < 0) this.x = 0;
         if(this.x > this.game.width - this.width) this.x = this.game.width - this.width;

@@ -10,5 +10,7 @@ export class UI {
         context.fillStyle = this.game.fontColor;
         //Score
         context.fillText('Score: ' + this.game.score, 20, 50);
+        context.fillText('Movement: Arrow Keys | Attack: Space', 20, 75);
+        context.fillText('Hitbox Toggle: G', 1100, 75);
     }
 }
