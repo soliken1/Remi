@@ -21,32 +21,32 @@ Logs:
 - Player State Fixes (Proper Falling Animation When Dashing While Falling)
 - Initial Debug Mode Set To False
 
-- -!!IMPORTANT!!-
-    I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
-    BIG CREDITS TO THE MAKERS OF THESE ASSESTS
+- -!!IMPORTANT!!-  
+    - I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
+    - BIG CREDITS TO THE MAKERS OF THESE ASSESTS
 
 - CHARACTER
-    Remilia Scarlet from TH10.5: Touhou Hisouten ~ Scarlet Weather Rhapsody
-    Credit: Tasogare Frontier; Team Shanghai Alice (ZUN)
-    Ripped by DarkOverloard
-    https://www.spriters-resource.com/pc_computer/touhou123/sheet/26464/
+    - Remilia Scarlet from TH10.5: Touhou Hisouten ~ Scarlet Weather Rhapsody
+    - Credit: Tasogare Frontier; Team Shanghai Alice (ZUN)
+    - Ripped by DarkOverloard  
+    - https://www.spriters-resource.com/pc_computer/touhou123/sheet/26464/
 
 - PARTICLES
-    https://www.spriters-resource.com/pc_computer/touhou123/sheet/33588/
+    - https://www.spriters-resource.com/pc_computer/touhou123/sheet/33588/
 
 - ENTITIES
-    Pelting of Midnight & Wind Sickle Bering
-    Hakurei Amulet 
-    Spiritual Orbs
+    - Pelting of Midnight & Wind Sickle Bering
+    - Hakurei Amulet 
+    - Spiritual Orbs
     
-    (CTRL + F on this site with the above 3 names)
+    - (CTRL + F on this site with the above 3 names)
     
-    Sprites:
-    https://rmrk.net/index.php?topic=32572.0
+    - Sprites:
+    - https://rmrk.net/index.php?topic=32572.0
 
-- WORLD BACKGROUND
-    https://www.frankslaboratory.co.uk/downloads/97/forest/layer-1.png
-    https://www.frankslaboratory.co.uk/downloads/97/forest/layer-2.png
-    https://www.frankslaboratory.co.uk/downloads/97/forest/layer-3.png
-    https://www.frankslaboratory.co.uk/downloads/97/forest/layer-4.png
-    https://www.frankslaboratory.co.uk/downloads/97/forest/layer-5.png
+- WORLD BACKGROUND  
+    - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-1.png
+    - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-2.png
+    - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-3.png
+    - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-4.png
+    - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-5.png
