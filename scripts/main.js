@@ -37,7 +37,7 @@ window.addEventListener('load', function() {
             this.particles = [];
             this.enemyTimer = 0;
             this.enemyInterval = 1500;
-            this.debug = true;
+            this.debug = false;
             this.score = 0;
             this.fontColor = 'black';
             this.player.currentState = this.player.states[1];
@@ -65,7 +65,6 @@ window.addEventListener('load', function() {
             //Particle Handling
             this.particles.forEach((particle, index) => {
                 particle.update();
-                console.log(particle)
                 if(particle.markedForDeletion) this.particles.splice(index, 1);
             });
         }

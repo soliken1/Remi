@@ -38,7 +38,6 @@ export class Sitting extends State {
         else if(input.includes('Enter')) {
             this.game.player.setState(states.ROLLING, 2);
         }
-       
         if(input.includes('ArrowDown') && 
         (input.includes('ArrowLeft') || input.includes('ArrowRight'))) {
         this.game.player.speed = 0;
@@ -115,6 +114,10 @@ export class Jumping extends State {
         }
         else if(input.includes(' ')) {
             this.game.player.setState(states.ROLLING, 2);
+        }
+        else if(!input.includes(' ') && (input.includes('ArrowLeft') || input.includes('ArrowRight')) && !this.game.player.onGround()) {
+            this.game.player.setState(states.FALLING, 1);
+            console.log('triggerd');
         } 
     }
 }
