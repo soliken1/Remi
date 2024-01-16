@@ -35,6 +35,7 @@ Logs:
     - https://www.spriters-resource.com/pc_computer/touhou123/sheet/33588/
 
 - ENTITIES
+    - Credit: Xenomic
     - Pelting of Midnight & Wind Sickle Bering
     - Hakurei Amulet 
     - Spiritual Orbs
@@ -44,7 +45,8 @@ Logs:
     - Sprites:
     - https://rmrk.net/index.php?topic=32572.0
 
-- WORLD BACKGROUND  
+- WORLD BACKGROUND
+    - Credits To This Maker:
     - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-1.png
     - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-2.png
     - https://www.frankslaboratory.co.uk/downloads/97/forest/layer-3.png
