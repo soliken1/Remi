@@ -117,7 +117,6 @@ export class Jumping extends State {
         }
         else if(!input.includes(' ') && (input.includes('ArrowLeft') || input.includes('ArrowRight')) && !this.game.player.onGround()) {
             this.game.player.setState(states.FALLING, 1);
-            console.log('triggerd');
         } 
     }
 }
@@ -153,7 +152,8 @@ export class Rolling extends State {
         }
         else if(!input.includes(' ')) {
             this.game.player.setState(states.FALLING, 1);
-        }else if(input.includes(' ') && input.includes('ArrowUp') && this.game.player.onGround()) {
+        }
+        else if(input.includes(' ') && input.includes('ArrowUp') && this.game.player.onGround()) {
             this.game.player.vy -= 27;
         }
     }
