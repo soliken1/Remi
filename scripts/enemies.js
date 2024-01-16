@@ -11,6 +11,8 @@ class Enemy {
         //Movement 
         this.x -= this.speedX + this.game.speed;
         this.y += this.speedY;
+
+        //Animation
         if(this.frameTimer > this.frameInterval) {
             this.frameTimer = 0;
             if(this.frameX < this.maxFrame) this.frameX++;

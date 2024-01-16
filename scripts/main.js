@@ -63,9 +63,9 @@ window.addEventListener('load', function() {
                 if(enemy.markedForDeletion) this.enemies.splice(this.enemies.indexOf(enemy), 1)
             });
             //Particle Handling
-            this.particles.forEach((particle, index) => {
-                particle.update();
-                if(particle.markedForDeletion) this.particles.splice(index, 1);
+            this.particles.forEach(particle => {
+                particle.update(this.player.currentState, deltaTime);
+                if(particle.markedForDeletion) this.particles.splice(this.particles.indexOf(particle), 1)
             });
         }
         //Draw basically draws the background and player 

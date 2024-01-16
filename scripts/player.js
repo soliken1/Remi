@@ -75,7 +75,6 @@ export class Player {   //Exports the Player Class to the main.js script
                         this.x, this.y, 
                         this.height, this.width);
     }
-
     onGround() {
         return this.y >= this.game.height - this.height - this.game.groundMargin;
     }

@@ -16,10 +16,19 @@ Logs:
 - Added Basic Instruction UI
 - Running Particle Effect
 * 16/1/2024
-* Added: 
+* Added: Nothing
 * Fixes/Tweaks:
 - Player State Fixes (Proper Falling Animation When Dashing While Falling)
 - Initial Debug Mode Set To False
+* 17/1/2024
+- Added: 
+- Dashing Attack Effect
+- Collision Trigger To Enemies on Dash Effect
+- Added Trail Dash Effect Particle
+- Particle Display Limits
+* Fixes/Tweaks:
+- Removed Idle/Running Aura Effect Due To Complexity of Conditions
+- Removed Running Particle Effect
 
 - -!!IMPORTANT!!-  
     - I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
