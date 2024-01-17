@@ -27,7 +27,7 @@ export class Player {   //Exports the Player Class to the main.js script
         this.maxFrame;
         //MaxFrame is for the max animation of the current state of the player ex Running has a max sprite frame
         //of 7.
-        this.fps = 15;
+        this.fps = 10;
         //FPS Sets the animation frame to make the animation not extremely fast
         this.frameInterval = 1000/this.fps;
         //Interval of the animation i.e frequency of the animation's fps
