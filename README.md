@@ -26,10 +26,12 @@ Logs:
 - Collision Trigger To Enemies on Dash Effect
 - Added Trail Dash Effect Particle
 - Particle Display Limits
+- Collision Between Entities State
+- Plunging Attack State And Area of Effect
 * Fixes/Tweaks:
 - Removed Idle/Running Aura Effect Due To Complexity of Conditions
 - Removed Running Particle Effect
-
+- Fixes Between States
 - -!!IMPORTANT!!-  
     - I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
     - BIG CREDITS TO THE MAKERS OF THESE ASSESTS

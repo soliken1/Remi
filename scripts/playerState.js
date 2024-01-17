@@ -1,4 +1,4 @@
-import { Starry, Pierce } from "./particles.js";
+import { Starry, Pierce, Plunge } from "./particles.js";
 const states = {
     SITTING: 0,
     IDLING:  1,
@@ -6,7 +6,7 @@ const states = {
     JUMPING: 3,
     FALLING: 4,
     ROLLING: 5,
-    DASHING: 6,
+    DIVING: 6,
     HIT: 7,
 }
 
@@ -15,6 +15,8 @@ class State {
         this.state = state;
         this.game = game;
         this.pierceActive = false;
+        this.divingActive = false;
+        this.plungeActive = false;
     }
 }
 
@@ -33,9 +35,9 @@ export class Sitting extends State {
            ) {
             this.game.player.setState(states.RUNNING, 1);
         }
-        else if (input.includes('ArrowUp')) {
-            this.game.player.setState(states.JUMPING, 1);
-        }
+        // else if (input.includes('ArrowUp')) {
+        //     this.game.player.setState(states.JUMPING, 1);
+        // }
         else if(input.includes('Enter')) {
             this.game.player.setState(states.ROLLING, 2);
         }
@@ -43,7 +45,7 @@ export class Sitting extends State {
         (input.includes('ArrowLeft') || input.includes('ArrowRight'))) {
         this.game.player.speed = 0;
         this.game.player.setState(states.SITTING, 0);
-        } 
+        }
     }
 }
 
@@ -117,7 +119,7 @@ export class Jumping extends State {
         }
         else if(!input.includes(' ') && (input.includes('ArrowLeft') || input.includes('ArrowRight')) && !this.game.player.onGround()) {
             this.game.player.setState(states.FALLING, 1);
-        } 
+        }
     }
 }
 
@@ -134,6 +136,9 @@ export class Falling extends State {
         if(this.game.player.onGround()) {
             this.game.player.setState(states.RUNNING, 1);
         }
+        else if(input.includes('ArrowDown')) {
+            this.game.player.setState(states.DIVING, 0);
+        } 
     }
 }
 
@@ -161,6 +166,61 @@ export class Rolling extends State {
         else if(input.includes(' ') && input.includes('ArrowUp') && this.game.player.onGround()) {
             this.game.player.vy -= 27;
         }
+        else if(input.includes('ArrowDown')) {
+            this.game.player.setState(states.DIVING, 0);
+            this.pierceActive = false;
+        } 
         this.game.particles.push(new Starry(this.game, this.game.player.x + this.game.player.width * 0.3, this.game.player.y + this.game.player.height * 0.5));
+    }
+}
+
+export class Diving extends State {
+    constructor(game) {
+        super('DIVING', game);
+    }
+    enter() {
+        this.game.player.frameX = 0;
+        this.game.player.frameY = 7;
+        this.game.player.maxFrame = 6;
+        this.game.player.vy = 20;
+    }
+    handleInput(input) {
+        
+        if(this.pierceActive === false) {
+            this.game.particles.push(new Pierce(this.game));
+            this.pierceActive = true;
+        }
+        if(this.game.player.onGround()) {
+            this.game.player.setState(states.SITTING, 0);
+            this.pierceActive = false;
+            this.divingActive = false;
+        }
+        if(this.divingActive === false && this.game.player.onGround()) {
+            this.game.particles.push(new Plunge(this.game));
+            this.pierceActive = true;
+        }
+        else if(input.includes(' ') && this.game.player.onGround()) {
+            this.game.player.setState(states.ROLLING, 2)
+        }
+        this.game.particles.push(new Starry(this.game, this.game.player.x + this.game.player.width * 0.5, this.game.player.y + this.game.player.height * 0.5));
+    }
+}
+
+export class Hit extends State {
+    constructor(game) {
+        super('HIT', game);
+    }
+    enter() {
+        this.game.player.frameX = 0;
+        this.game.player.frameY = 10;
+        this.game.player.maxFrame = 10;
+    }
+    handleInput(input) {
+        if(this.game.player.frameX >= 10 && this.game.player.onGround()) {
+            this.game.player.setState(states.RUNNING, 1) 
+        } 
+        else if(this.game.player.frameX >= 10 && !this.game.player.onGround()) {
+            this.game.player.setState(states.FALLING, 2);
+        }
     }
 }

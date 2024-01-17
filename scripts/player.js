@@ -1,4 +1,4 @@
-import { Sitting, Idling, Running, Jumping, Falling, Rolling } from "./playerState.js"; //Player States Self Explanatory
+import { Sitting, Idling, Running, Jumping, Falling, Rolling, Diving, Hit } from "./playerState.js"; //Player States Self Explanatory
 
 export class Player {   //Exports the Player Class to the main.js script
     constructor(game) { //From the main.js script gets the game class and making the game class' variable accessible
@@ -27,7 +27,7 @@ export class Player {   //Exports the Player Class to the main.js script
         this.maxFrame;
         //MaxFrame is for the max animation of the current state of the player ex Running has a max sprite frame
         //of 7.
-        this.fps = 15;
+        this.fps = 1;
         //FPS Sets the animation frame to make the animation not extremely fast
         this.frameInterval = 1000/this.fps;
         //Interval of the animation i.e frequency of the animation's fps
@@ -38,7 +38,7 @@ export class Player {   //Exports the Player Class to the main.js script
         this.maxSpeed = 10;
         //Player's max speed
         this.states = [new Sitting(this.game), new Idling(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game),
-                      new Rolling(this.game)];
+                      new Rolling(this.game), new Diving(this.game), new Hit(this.game)];
         //States of the player when the user controls the character, these can be triggered by certain keys
     }
 
@@ -49,11 +49,15 @@ export class Player {   //Exports the Player Class to the main.js script
         this.currentState.handleInput(input);
         //Horizontal Movement
         this.x += this.speed;
-        if (input.includes('ArrowLeft')) this.speed = -this.maxSpeed;
-        else if (input.includes('ArrowRight')) this.speed = this.maxSpeed;
+        if (input.includes('ArrowLeft') && this.currentState != this.states[7]) this.speed = -this.maxSpeed;
+        else if (input.includes('ArrowRight') && this.currentState != this.states[7]) this.speed = this.maxSpeed;
         else this.speed = 0;
+        //Horizontal Boundaries
         if(this.x < 0) this.x = 0;
         if(this.x > this.game.width - this.width) this.x = this.game.width - this.width;
+        //Vertical Boundaries
+        if(this.y > this.game.height - this.height - this.game.groundMargin)
+        this.y = this.game.height - this.height - this.game.groundMargin;
 
         //Vertical Movement
         this.y += this.vy;
@@ -93,9 +97,12 @@ export class Player {   //Exports the Player Class to the main.js script
                 enemy.y + enemy.height > this.y
             ) {
                 enemy.markedForDeletion = true;
-                this.game.score++;
-            }else {
-                //No Collision 
+                if(this.currentState === this.states[5] || this.currentState === this.states[6]) {
+                    this.game.score++;
+                }
+                else {
+                    this.setState(7, 0);
+                }
             }
         });
     }
