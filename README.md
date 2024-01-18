@@ -41,7 +41,7 @@ Logs:
 
 - Dev Notes:
     - 18/01/2024 
-    - This marks the so called 'completion' of my vision to this small test project i may add projectiles or may - not it depends big credits to the assets i ripped below.
+    - This marks the so called 'completion' of my vision to this small test project. i may add projectiles or may not it depends. big credits to the assets i ripped below. for transparency, audios are kinda off due to sound tagging i have no plans on fixing this as of now due to time consumption on this project already tolled.
     
 - -!!IMPORTANT!!-  
     - I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
