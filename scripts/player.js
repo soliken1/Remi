@@ -1,5 +1,5 @@
 import { Sitting, Idling, Running, Jumping, Falling, Rolling, Diving, Hit } from "./playerState.js"; //Player States Self Explanatory
-
+import { EntityCollision } from "./entityCollision.js";
 export class Player {   //Exports the Player Class to the main.js script
     constructor(game) { //From the main.js script gets the game class and making the game class' variable accessible
         this.game = game;       //To this player.js script 
@@ -97,6 +97,7 @@ export class Player {   //Exports the Player Class to the main.js script
                 enemy.y + enemy.height > this.y
             ) {
                 enemy.markedForDeletion = true;
+                this.game.collisions.push(new EntityCollision(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 if(this.currentState === this.states[5] || this.currentState === this.states[6]) {
                     this.game.score++;
                 }

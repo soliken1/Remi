@@ -35,11 +35,15 @@ window.addEventListener('load', function() {
             this.UI = new UI(this);
             this.enemies = [];
             this.particles = [];
+            this.collisions = [];
             this.enemyTimer = 0;
             this.enemyInterval = 1500;
             this.debug = false;
             this.score = 0;
             this.fontColor = 'black';
+            this.time = 0;
+            this.maxTime = 120000;
+            this.gameOver = false;
             this.player.currentState = this.player.states[1];
             //Sets the current state of the player the index of states 1 which is new Idling(player/this class)
             this.player.currentState.enter();
@@ -49,6 +53,8 @@ window.addEventListener('load', function() {
         //Update basically refreshes or update the canvas 60 frames per second and passes 
         //player the game's input keys and delta time from animation function below
         update(deltaTime) {
+            this.time += deltaTime;
+            if(this.time > this.maxTime) this.gameOver = true;
             this.background.update();
             this.player.update(this.input.keys, deltaTime);
             //Handle Enemies
@@ -67,6 +73,11 @@ window.addEventListener('load', function() {
                 particle.update(this.player.currentState, deltaTime);
                 if(particle.markedForDeletion) this.particles.splice(this.particles.indexOf(particle), 1)
             });
+            //Collision Sprites Handling
+            this.collisions.forEach((collision, index) => {
+                collision.update(deltaTime);
+                if(collision.markedForDeletion) this.collisions.splice(this.collisions.indexOf(index), 1)
+            });
         }
         //Draw basically draws the background and player 
         //based on the variable context above drawing the 2d context
@@ -80,6 +91,9 @@ window.addEventListener('load', function() {
                 particle.draw(context);
             });
             this.UI.draw(context)
+            this.collisions.forEach(collision => {
+                collision.draw(context);
+            });
         }
         addEnemy() {
             if(this.speed > 0 && Math.random() < 0.15) this.enemies.push(new GroundEnemy(this));
@@ -104,7 +118,7 @@ window.addEventListener('load', function() {
         game.draw(ctx);
         game.update(deltaTime);
         //This function is already built-in on the js library where gets the frames and expects a function animate
-        requestAnimationFrame(animate);
+        if(!game.gameOver)requestAnimationFrame(animate);
     }
     //Runs the animate function giving timeStamp a value of 0
     animate(0);

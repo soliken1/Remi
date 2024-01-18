@@ -1,3 +1,5 @@
+import { EntityCollision } from "./entityCollision.js";
+
 class Particle {
     constructor(game) {
         this.game = game;
@@ -120,14 +122,14 @@ export class Pierce extends Particle {
     checkCollision() {
         this.game.enemies.forEach(enemy => {
             if(
-                enemy.x < this.x + this.offsetX + this.width && 
-                enemy.x + enemy.width > this.offsetX &&
+                enemy.x < this.x + this.width && 
+                enemy.x + enemy.width > this.x &&
                 enemy.y < this.y + this.height &&
                 enemy.y + enemy.height > this.y
             ) {
+                this.game.collisions.push(new EntityCollision(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 enemy.markedForDeletion = true;
                 this.game.score++;
-                console.log('true')
             }else {
                 //No Collision 
             }
