@@ -32,6 +32,16 @@ Logs:
 - Removed Idle/Running Aura Effect Due To Complexity of Conditions
 - Removed Running Particle Effect
 - Fixes Between States
+* 18/1/2024
+- Finalization of Code
+- Added Timer UI and End Screen By 120 Seconds
+- Added Explosion Collision on Entity Hit
+
+- Dev Notes:
+    - I might add projectiles in the future depending on schedule it may or may not happen
+    - From 18/1/2024 Only missing now is audio and i would mark this as done for practice and exploration of this
+    - small game
+
 - -!!IMPORTANT!!-  
     - I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
     - BIG CREDITS TO THE MAKERS OF THESE ASSESTS
