@@ -57,9 +57,14 @@ export class Plunge extends Particle {
         this.offsetX = 60;
         this.offsetY = 120;
         this.image = document.getElementById('particles2');
+        this.sound = document.getElementById('plunge');
+        this.sound.volume = 0.2;
     }
     update(states, deltaTime) {
         super.update(states, deltaTime);
+
+        //Play Sound
+        this.sound.play();
                 
         if(this.frameX === this.maxFrame) {
             this.markedForDeletion = true;
@@ -104,6 +109,8 @@ export class Pierce extends Particle {
         this.width = 120;
         this.height = 120;
         this.image = document.getElementById('particles');
+        this.sound = document.getElementById('swosh');
+        this.sound.volume = 0.2;
     }
     update(states, deltaTime) {
         this.checkCollision();
@@ -111,22 +118,23 @@ export class Pierce extends Particle {
         if(states.state != 'ROLLING') {
             this.markedForDeletion = true;
         }
+        //Play Sound
+        this.sound.play();
     }
     draw(context) {
         context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height, 
             this.x + this.offsetX, this.y, this.height, this.width);
-
         if(this.game.debug) context.strokeRect(this.x + this.offsetX, this.y, this.width, this.height)
-
     }
     checkCollision() {
         this.game.enemies.forEach(enemy => {
             if(
-                enemy.x < this.x + this.width && 
-                enemy.x + enemy.width > this.x &&
+                enemy.x < (this.x + this.offsetX) + this.width && 
+                enemy.x + enemy.width > (this.x + this.offsetX) &&
                 enemy.y < this.y + this.height &&
                 enemy.y + enemy.height > this.y
             ) {
+                enemy.sound.play();
                 this.game.collisions.push(new EntityCollision(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 enemy.markedForDeletion = true;
                 this.game.score++;

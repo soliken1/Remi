@@ -36,12 +36,13 @@ Logs:
 - Finalization of Code
 - Added Timer UI and End Screen By 120 Seconds
 - Added Explosion Collision on Entity Hit
+- Added Audio Effects In Plunge State, Dash/Roll State/Collision To Entities
+- Added BGM 
 
 - Dev Notes:
-    - I might add projectiles in the future depending on schedule it may or may not happen
-    - From 18/1/2024 Only missing now is audio and i would mark this as done for practice and exploration of this
-    - small game
-
+    - 18/01/2024 
+    - This marks the so called 'completion' of my vision to this small test project i may add projectiles or may - not it depends big credits to the assets i ripped below.
+    
 - -!!IMPORTANT!!-  
     - I DO NOT OWN THE ASSESTS/IMAGES/ETC DEVELOPED IN THIS PERSONAL PROJECT 
     - BIG CREDITS TO THE MAKERS OF THESE ASSESTS
@@ -54,6 +55,17 @@ Logs:
 
 - PARTICLES
     - https://www.spriters-resource.com/pc_computer/touhou123/sheet/33588/
+
+- AUDIO
+    - https://www.sounds-resource.com/pc_computer/touhouhisoutensoku/sound/48916/
+
+- BGM 
+    - Title - 無何有の郷 ～ Deep Mountain
+    - Circle - Demetori
+    - Album - 如臨深遠 ～雨縒煙柳～
+    - Original - 無何有の郷 ～ Deep Mountain
+    - Game - 東方妖々夢　～ Perfect Cherry Blossom
+    - Big respect for Demetori ill take it down if conflicts occur hit my dms if so :)
 
 - ENTITIES
     - Credit: Xenomic

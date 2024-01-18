@@ -96,6 +96,7 @@ export class Player {   //Exports the Player Class to the main.js script
                 enemy.y < this.y + this.height &&
                 enemy.y + enemy.height > this.y
             ) {
+                enemy.sound.play();
                 enemy.markedForDeletion = true;
                 this.game.collisions.push(new EntityCollision(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 if(this.currentState === this.states[5] || this.currentState === this.states[6]) {

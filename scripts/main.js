@@ -42,12 +42,14 @@ window.addEventListener('load', function() {
             this.score = 0;
             this.fontColor = 'black';
             this.time = 0;
-            this.maxTime = 120000;
+            this.maxTime = 268500;
             this.gameOver = false;
             this.player.currentState = this.player.states[1];
             //Sets the current state of the player the index of states 1 which is new Idling(player/this class)
             this.player.currentState.enter();
             //Enter the current state of the player
+            this.sound = document.getElementById('theme')
+            this.sound.volume = 0.1;
         }
 
         //Update basically refreshes or update the canvas 60 frames per second and passes 
@@ -56,6 +58,7 @@ window.addEventListener('load', function() {
             this.time += deltaTime;
             if(this.time > this.maxTime) this.gameOver = true;
             this.background.update();
+            this.sound.play();
             this.player.update(this.input.keys, deltaTime);
             //Handle Enemies
             if(this.enemyTimer > this.enemyInterval) {

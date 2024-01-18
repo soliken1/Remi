@@ -12,7 +12,7 @@ export class EntityCollision {
         this.frameX = 0;
         this.maxFrame = 1;
         this.markedForDeletion = false;
-        this.fps = 30;
+        this.fps = 15;
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
 
